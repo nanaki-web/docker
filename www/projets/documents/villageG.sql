@@ -1,4 +1,6 @@
-create database if not exists village_green
+DROP DATABASE IF EXISTS village_green;
+CREATE DATABASE village_green;
+USE village_green;
 CREATE TABLE fournisseur(
    fou_id INT AUTO_INCREMENT,
    fou_nom VARCHAR(50)  NOT NULL,
@@ -52,7 +54,9 @@ CREATE TABLE rubrique(
 CREATE TABLE ssRubrique(
    ssrub_id INT AUTO_INCREMENT,
    ssRub_nom VARCHAR(50) ,
-   PRIMARY KEY(ssrub_id)
+   rub_id INT NOT NULL,
+   PRIMARY KEY(ssrub_id),
+   FOREIGN KEY(rub_id) REFERENCES rubrique(rub_id)
 );
 
 CREATE TABLE commercial(
@@ -120,20 +124,4 @@ CREATE TABLE appartenir(
    PRIMARY KEY(pro_id, ssrub_id),
    FOREIGN KEY(pro_id) REFERENCES produit(pro_id),
    FOREIGN KEY(ssrub_id) REFERENCES ssRubrique(ssrub_id)
-);
-
-CREATE TABLE appartenir2(
-   rub_id INT,
-   ssrub_id INT,
-   PRIMARY KEY(rub_id, ssrub_id),
-   FOREIGN KEY(rub_id) REFERENCES rubrique(rub_id),
-   FOREIGN KEY(ssrub_id) REFERENCES ssRubrique(ssrub_id)
-);
-
-CREATE TABLE contient(
-   pro_id INT,
-   liv_id INT,
-   PRIMARY KEY(pro_id, liv_id),
-   FOREIGN KEY(pro_id) REFERENCES produit(pro_id),
-   FOREIGN KEY(liv_id) REFERENCES livraison(liv_id)
 );
