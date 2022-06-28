@@ -1,5 +1,7 @@
-DROP DATABASE IF EXISTS village_green;
-CREATE DATABASE village_green;
+DROP DATABASE IF EXISTS village_green;
+
+CREATE DATABASE village_green;
+
 USE village_green;
 CREATE TABLE fournisseur(
    fou_id INT AUTO_INCREMENT,
@@ -70,8 +72,8 @@ CREATE TABLE commercial(
 
 CREATE TABLE produit(
    pro_id INT AUTO_INCREMENT,
-   pro_nom VARCHAR(50)  NOT NULL,
-   pro_description VARCHAR(50)  NOT NULL,
+   pro_nom VARCHAR(75)  NOT NULL,
+   pro_description VARCHAR(250)  NOT NULL,
    pro_prix DECIMAL(15,2)   NOT NULL,
    pro_active BOOLEAN NOT NULL,
    pro_stock INT NOT NULL,
@@ -125,3 +127,7 @@ CREATE TABLE appartenir(
    FOREIGN KEY(pro_id) REFERENCES produit(pro_id),
    FOREIGN KEY(ssrub_id) REFERENCES ssRubrique(ssrub_id)
 );
+
+CREATE INDEX `index_pro_nom`
+ON `produit`(`pro_nom`);
+
