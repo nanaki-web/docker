@@ -8,7 +8,7 @@ if(!empty($_POST['disc_id']))
     $disc_id = $_REQUEST['disc_id'];
     
 }
-var_dump($_POST['submit']);
+
 //declaration des variables
 $titre = htmlentities(trim($_POST['disc_title']));
 $nom = htmlentities(trim($_POST['artist_name']));
@@ -43,8 +43,8 @@ $requete->execute();
 
 
 $msg = "";
-// Si le bouton de téléchargement est cliqué ...
-var_dump($disc_id);
+// Si le bouton de submit est cliqué ...
+
 
     // basename() peut empêcher les attaques "filesystem traversal";
     $filename = basename($_FILES['telecharger']['name']);
