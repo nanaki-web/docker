@@ -15,7 +15,7 @@ $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
     <div class="container py-5 bg-light">
     <h1>Liste des disques (15)</h1>
         <div class="row justify-content-around">
-            <a href="formulaireAjout.php"class="formulaireAjout btn btn-outline-danger w-100" name = "an_id" role="button" aria-pressed="true" >Ajouter un disque</a>
+            <a href="formulaireAjout.php"class="formulaireAjout btn btn-outline-danger w-100" name = "disc_id" role="button" aria-pressed="true" >Ajouter un disque</a>
             <?php foreach ($tableau as $row)
             {
                 ?>
