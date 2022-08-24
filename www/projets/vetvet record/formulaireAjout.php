@@ -3,8 +3,11 @@ require_once('connectionDb.php');
 $db=connect();
 include('header.php');
 
+$requete = $db->prepare("SELECT artist_id,artist_name FROM artist a ");
+$requete->execute();
+$tableau = $requete->fetchAll(PDO::FETCH_OBJ);
 
-
+var_dump($tableau);
 ?>
 
 <section>
@@ -18,11 +21,25 @@ include('header.php');
                             <label for="titre" class="form-label">Titre</label>
                             <input type="text" class="form-control" name= "disc_title"id="titre" placeholder="">
                         </div>
-                    
-                        <div class="position mb-3 ">
+                        <div>
+                        <label for ="select-artiste" >Artiste: </label>
+                        <select class="form-select form-select " name="artist_id" id="select-artiste" aria-label=".form-select-sm example" >
+                            <option selected>choisir un artiste : </option>
+                            <?php
+                            foreach($tableau as $row)
+                            {
+                            ?>
+                                <option value="<?php echo $row->artist_id?>"><?php echo $row->artist_name;?></option>
+                            <?php
+                            
+                            }
+                            ?>
+                        </select>
+                        </div>
+                        <!-- <div class="position mb-3 ">
                             <label for="artiste" class="form-label ">Artiste</label>
                             <input type="text" class="form-control " name="artist_name" id="artiste" placeholder="">
-                        </div>
+                        </div> -->
                     </div>
                     <div class="d-flex d-flex justify-content-start ">
                         <div class="  mb-3">

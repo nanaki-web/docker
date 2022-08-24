@@ -20,10 +20,10 @@ if(!empty($_POST))
                                 INNER JOIN artist
                                 ON disc.artist_id = artist.artist_id
                                 WHERE disc.disc_id = :disc_id");
-    $pdoStat->bindValue(':disc_id',$disc_id),PARAM_;
+    $pdoStat->bindValue(':disc_id',$disc_id,PDO::PARAM_INT);
 
 
-    header("Location: clients.php");
+    //header("Location: clients.php");
 }
 
 
@@ -35,7 +35,7 @@ if(!empty($_POST))
             <h3>Supprimer le disque</h3>
             <div class="col-md-4 col-md-4">
                 <form action="" method="POST" name="formulaire" enctype="multipart/form-data">
-                <input type="hidden" name="disc_id" value="<?php echo $artist_id;?>"/>
+                <input type="hidden" name="disc_id" value="<?php echo $disc_id;?>"/>
 
                 Etes vous sûr de vouloir l'effacer ?
 

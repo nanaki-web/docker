@@ -36,20 +36,20 @@ include('header.php');
 */ 
 
 //declaration des variables pour la table artist
-$nom = htmlentities(trim($_POST['artist_name']));
+//$artist_id = htmlentities(trim($_POST['artist_id']));
 
 //requete preparé 
 
-$artist=$db->prepare("INSERT INTO artist (artist_name)
-                    VALUES (:artist_name)");
+//$artist=$db->prepare("SELECT artist_id 
+                   // FROM artist)");
 
 //on lie chaque marqueur a sa valeur
 
-$artist->bindValue('artist_name',$nom);
-$artist->execute();
+//$artist->bindValue('artist_id',$artist_id);
+//$artist->execute();
 
 //recuperation du dernier id inserer pour la table artist
-$artist_id= $db->lastInsertId();
+//$artist_id= $db->lastInsertId();
 
 
 
@@ -60,6 +60,9 @@ $annee = htmlentities(trim($_POST['disc_year']));
 $genre = htmlentities(trim($_POST['disc_genre']));
 $label = htmlentities(trim($_POST['disc_label']));
 $prix = htmlentities(trim($_POST['disc_price']));
+$artist_id = htmlentities(trim($_POST['artist_id']));
+var_dump($titre);
+
 
 // basename() peut empêcher les attaques "filesystem traversal";
 //declaration variable pour ajouter l'image
@@ -80,6 +83,8 @@ $pdoStat->bindValue(':disc_label',$label);
 $pdoStat->bindValue(':disc_price',$prix,PDO::PARAM_INT);
 $pdoStat->bindValue(':artist_id',$artist_id,PDO::PARAM_INT);
 $pdoStat->bindValue(':disc_picture',$filename);
+
+
 $pdoStat->execute();
 
 
