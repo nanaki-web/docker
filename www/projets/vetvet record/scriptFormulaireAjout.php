@@ -54,7 +54,7 @@ $artist_id= $db->lastInsertId();
 
 
 /* ************************************************************/
-//declaration des variable pour la table disc
+//declaration des variables pour la table disc
 $titre = htmlentities(trim($_POST['disc_title']));
 $annee = htmlentities(trim($_POST['disc_year']));
 $genre = htmlentities(trim($_POST['disc_genre']));

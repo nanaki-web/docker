@@ -42,7 +42,7 @@ $requete->execute();
 //enregistrer une image
 
 
-$msg = "";
+
 // Si le bouton de submit est cliqué ...
 
 
@@ -55,7 +55,6 @@ $msg = "";
     $sql = $db->prepare("UPDATE disc SET disc_picture = :disc_picture WHERE disc_id = :id");
     $sql->bindValue(':disc_picture',$filename);
     $sql->bindValue(':id',$disc_id,PDO::PARAM_INT);
-    var_dump($filename);
     $sql->execute();
     
     

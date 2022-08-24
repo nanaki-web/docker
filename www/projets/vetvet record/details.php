@@ -8,6 +8,7 @@ $requete = $db->prepare("SELECT * FROM disc d JOIN artist a ON d.disc_id = a.art
 $requete->execute();
 $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
 
+
 ?>
 <section>
     <div class="container py-5 bg-light">
@@ -57,10 +58,11 @@ $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
                     <div class="d-flex justify-content-center">
                         <a href="index.php" class="  btn btn-outline-primary w-100 "  role="button" aria-pressed="true">Retour</a>
                         <a href="formulaireModifications.php?disc_id=<?=$row->disc_id?>" class="position2 btn btn-outline-warning w-100" role="button" aria-pressed="true">Modification</a>
-                        <a href="supprimer.php?disc_id=<?=$row->disc_id?> "class="position2 btn btn-outline-danger w-100" name = "an_id" role="button" aria-pressed="true">Supprimer</a>
+                        <a href="scriptFormulaireSuppression.php?disc_id=<?=$row->disc_id?>"class="position2 btn btn-outline-danger w-100" name = "disc_id" role="button" aria-pressed="true">Supprimer</a>
                     </div>
                 <?php
                 }
+                
                 ?>
 
 
