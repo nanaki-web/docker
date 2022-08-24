@@ -7,7 +7,6 @@ $requete = $db->prepare("SELECT artist_id,artist_name FROM artist a ");
 $requete->execute();
 $tableau = $requete->fetchAll(PDO::FETCH_OBJ);
 
-var_dump($tableau);
 ?>
 
 <section>
@@ -16,32 +15,32 @@ var_dump($tableau);
             <h2>Ajouter un disque</h2>
             <div class=" details col-md-4 col-md-4">
                 <form action="scriptFormulaireAjout.php" method="POST" name="formulaire" enctype="multipart/form-data">
-                    <div class="d-flex d-flex justify-content-start ">
+                    <div class="text-center ">
                         <div class=" mb-3 ">
                             <label for="titre" class="form-label">Titre</label>
                             <input type="text" class="form-control" name= "disc_title"id="titre" placeholder="">
                         </div>
-                        <div>
-                        <label for ="select-artiste" >Artiste: </label>
-                        <select class="form-select form-select " name="artist_id" id="select-artiste" aria-label=".form-select-sm example" >
-                            <option selected>choisir un artiste : </option>
-                            <?php
-                            foreach($tableau as $row)
-                            {
-                            ?>
-                                <option value="<?php echo $row->artist_id?>"><?php echo $row->artist_name;?></option>
-                            <?php
-                            
-                            }
-                            ?>
-                        </select>
+
+                        <div class="row">
+                            <div class="col-12">
+                                <label  for ="select-artiste" >Artiste: </label>
+                                <select class="form-select form-select " name="artist_id" id="select-artiste" aria-label=".form-select-sm example" >
+                                    <option selected>choisir un artiste : </option>
+                                    <?php
+                                    foreach($tableau as $row)
+                                    {
+                                    ?>
+                                        <option value="<?php echo $row->artist_id?>"><?php echo $row->artist_name;?></option>
+                                    <?php
+                                    
+                                    }
+                                    ?>
+                                </select>
+                            </div>
                         </div>
-                        <!-- <div class="position mb-3 ">
-                            <label for="artiste" class="form-label ">Artiste</label>
-                            <input type="text" class="form-control " name="artist_name" id="artiste" placeholder="">
-                        </div> -->
+
                     </div>
-                    <div class="d-flex d-flex justify-content-start ">
+                    <div class="d-flex justify-content-start ">
                         <div class="  mb-3">
                             <label for="annee" class="form-label ">Année</label>
                             <input type="text" class="form-control" name="disc_year" id="annee" placeholder="">
@@ -51,7 +50,7 @@ var_dump($tableau);
                             <input type="text" class="form-control" name="disc_genre" id="genre" placeholder="">
                         </div>
                     </div>
-                    <div class="d-flex d-flex justify-content-start ">
+                    <div class="d-flex justify-content-start ">
                         <div class="mb-3">
                             <label for="label" class="form-label">Label</label>
                             <input type="text" class="form-control" name="disc_label" id="label" placeholder="">
