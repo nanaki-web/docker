@@ -1,3 +1,5 @@
+[nb: dans le dossier www/projet , il y a le le projet Vetvet , c'est un CRUD]
+
 ![logo](peter6prod.png)
 # Stack LAMP fait avec Docker Compose pour uniformiser les travaux des stagiaires
 
